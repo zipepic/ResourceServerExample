@@ -14,8 +14,8 @@ public class SecurityConfig {
         this.queryGateway = queryGateway;
     }
 
-    @Bean
-    public JwtDecoder jwtDecoder() {
-        return new AxonJwtDecoder(queryGateway);
-    }
+//    @Bean
+//    public JwtDecoder jwtDecoder() {
+//        return new AxonJwtDecoder(queryGateway);
+//    }
 }
