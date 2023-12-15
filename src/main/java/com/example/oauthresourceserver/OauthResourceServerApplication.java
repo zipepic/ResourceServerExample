@@ -1,8 +1,9 @@
 package com.example.oauthresourceserver;
 
-import com.project.core.commands.user.CreateUserProfileCommand;
+import com.project.core.dto.UserProfileDTO;
 import com.project.core.queries.FetchJwksQuery;
-import com.project.core.queries.user.FetchJwkSet;
+import com.project.core.queries.user.FetchUserProfileDTOByUserIdQuery;
+import com.project.core.queries.user.FindUserIdByUserNameAndValidatePasswordQuery;
 import com.thoughtworks.xstream.XStream;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,9 +23,11 @@ public class OauthResourceServerApplication {
     public XStream xStream() {
         XStream xStream = new XStream();
         registerClasses(xStream,
-                FetchJwkSet.class,
                 SimpleJWK.class,
-                FetchJwksQuery.class);
+                FetchJwksQuery.class,
+                UserProfileDTO.class,
+                FetchUserProfileDTOByUserIdQuery.FetchUserProfileDTOByUserIdQueryBuilder.class,
+                FindUserIdByUserNameAndValidatePasswordQuery.class);
 
         return xStream;
     }
